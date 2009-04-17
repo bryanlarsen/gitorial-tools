@@ -14,8 +14,9 @@ gitorial.rb
 
 If all of your git commit messages are in Markdown format, this will
 assemble your git history into a single Markdown file.  Initialize
-with `git log -p --reverse`, the base URL for commit links and the
-path to `.git/refs/tags`.
+with `git log -p --reverse`, the base URL for commit links and
+optionally the contents of `.git/packed-refs`.  (You can create this
+with `git pack-refs --all`)
 
 The first line of the commit message is assumed to be the "short
 message" and is discarded.  Only the "long message" is written to the
@@ -25,7 +26,8 @@ Any line in a commit message that consists solely of `SHOW_PATCH` will
 be replaced with the patch trimmed down to improve readability.
 
 A commit link is placed at the end of each commit.  This is wrapped in
-a `p.commit` tag.
+a `p.commit` tag.  If you supplied the pack-refs, it will display the
+tag name if available rather than the commit ID.
 
 We use [Dan Webb's Unobtrusive Code
 Highlighter](http://svn.danwebb.net/external/CodeHighlighter/trunk/)
