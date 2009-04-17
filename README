@@ -14,7 +14,12 @@ gitorial.rb
 
 If all of your git commit messages are in Markdown format, this will
 assemble your git history into a single Markdown file.  Initialize
-with `git log -p --reverse` and the base URL for commit links.
+with `git log -p --reverse`, the base URL for commit links and the
+path to `.git/refs/tags`.
+
+The first line of the commit message is assumed to be the "short
+message" and is discarded.  Only the "long message" is written to the
+output.
 
 Any line in a commit message that consists solely of `SHOW_PATCH` will
 be replaced with the patch trimmed down to improve readability.
@@ -41,3 +46,12 @@ Given a quilt/stgit series file, this uses stgit to create a gitorial
 repository.  See [the agility gitorial
 source](http://github.com/bryanlarsen/agility-gitorial-patches/tree/master)
 for an example.
+
+gitorial-update-remote-tags
+---------------------------
+
+You can push your tags with `git push --tags origin`.  However, if you
+redo your tags, the push will fail.  I haven't figured out an
+equivalent of the `git push origin +master` syntax to force push
+tags.  So we have to delete all the tags, one by one, and push them
+again.  This script does that
