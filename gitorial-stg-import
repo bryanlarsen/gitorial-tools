@@ -1,0 +1,16 @@
+#!/bin/sh
+if test ! $1 ; then
+    echo "USAGE:  $0 series"
+    exit 1
+fi
+git init
+touch README
+git add README
+git commit --cleanup=verbatim -m ""
+stg init
+while true ; do 
+    stg import -i -s -t $1 
+    if test $? -eq 0 ; then 
+        break 
+    fi 
+done

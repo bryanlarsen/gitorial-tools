@@ -1,0 +1,43 @@
+Gitorial Tools
+==============
+
+These are a couple of tools I used to develop gitorials.
+
+Example:
+
+The source:  http://github.com/bryanlarsen/agility-gitorial-patches/tree/master
+The gitorial repository: http://github.com/bryanlarsen/agility-gitorial-patches/tree/master
+The output: http://cookbook.hobocentral.net/gitorials/agility
+
+gitorial.rb
+-----------
+
+If all of your git commit messages are in Markdown format, this will
+assemble your git history into a single Markdown file.  Initialize
+with `git log -p --reverse` and the base URL for commit links.
+
+Any line in a commit message that consists solely of `SHOW_PATCH` will
+be replaced with the patch trimmed down to improve readability.
+
+A commit link is placed at the end of each commit.  This is wrapped in
+a `p.commit` tag.
+
+We use [Dan Webb's Unobtrusive Code
+Highlighter](http://svn.danwebb.net/external/CodeHighlighter/trunk/)
+to style the patches.  You're welcome to steal our
+[diff.js](http://github.com/tablatom/hobocookbook/blob/master/public/javascripts/highlighters/diff.js).
+It's easy enough to use your own highlighter -- patches are wrapped in
+`code.diff`.
+
+gitorial-bulk-tag
+-----------------
+
+This script tags every commit in the repository.
+
+gitorial-stg-import
+-------------------
+
+Given a quilt/stgit series file, this uses stgit to create a gitorial
+repository.  See [the agility gitorial
+source](http://github.com/bryanlarsen/agility-gitorial-patches/tree/master)
+for an example.
