@@ -30,8 +30,9 @@ class Gitorial
         patch << "    #{line}" if state==:patch
       elsif words[0]=="commit" or words[0]=="DONE"
         if !commit.nil?
-          # slice to remove first three line of message, which is the short message
-          markdown += message.slice(3..-1).map {|l|
+          # replace the short description line with an a name
+          message[2] = "<a name='#{message[2]}'> </a>"
+          markdown += message.map {|l|
             if l=="SHOW_PATCH"
               (patch+["{: .diff}\n"]).join("\n")
             else
