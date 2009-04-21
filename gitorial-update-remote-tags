@@ -1,8 +1,0 @@
-#!/bin/sh
-
-for tag in `git tag -l` ; do
-  git push origin :refs/tags/${tag}
-done
-
-git push --tags origin
-  
