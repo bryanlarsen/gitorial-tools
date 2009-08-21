@@ -7,7 +7,7 @@ Example:
 
 The source:  http://github.com/bryanlarsen/agility-gitorial-patches/tree/master
 The gitorial repository: http://github.com/bryanlarsen/agility-gitorial-patches/tree/master
-The output: http://cookbook.hobocentral.net/gitorials/agility
+The output: http://cookbook.hobocentral.net/tutorials/agility
 
 gitorial.rb
 -----------
@@ -48,12 +48,3 @@ Given a quilt/stgit series file, this uses stgit to create a gitorial
 repository.  See [the agility gitorial
 source](http://github.com/bryanlarsen/agility-gitorial-patches/tree/master)
 for an example.
-
-gitorial-update-remote-tags
----------------------------
-
-You can push your tags with `git push --tags origin`.  However, if you
-redo your tags, the push will fail.  I haven't figured out an
-equivalent of the `git push origin +master` syntax to force push
-tags.  So we have to delete all the tags, one by one, and push them
-again.  This script does that

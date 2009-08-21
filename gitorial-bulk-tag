@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-n=`git log | grep commit`.split("\n").length-1
+n=`git log | grep ^commit`.split("\n").length-1
 (1..n).each {|i|
   system "git tag -f gitorial-#{sprintf('%03i', i)} HEAD~#{n-i}"
 }
