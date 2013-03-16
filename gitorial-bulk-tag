@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 n=`git log | grep ^commit`.split("\n").length-1
 (1..n).each {|i|
+  puts "git tag -f gitorial-#{sprintf('%03i', i)} HEAD~#{n-i}"
   system "git tag -f gitorial-#{sprintf('%03i', i)} HEAD~#{n-i}"
 }
-
